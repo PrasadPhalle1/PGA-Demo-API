@@ -1,0 +1,313 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-02T10:59:26.908Z",
+    "end": "2022-11-02T10:59:26.958Z",
+    "duration": 50,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7cbe647b-da43-4f70-984f-ce7cbd53ba1f",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "381cfbd5-4b7c-4c5e-8227-cf2607121228",
+          "title": "POST",
+          "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
+          "file": "\\test\\Test1.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "/users",
+              "fullTitle": "POST /users",
+              "timedOut": false,
+              "duration": 22,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data={\n    email:`test-${Math.floor(Math.random()*9999)}@mail.com`,\n    name :'Test1',\n    gender :'female',\n    status : 'active',\n};\nrequest.post('users')\n.set('Authorization',`Bearer ${Token}`)\n.send(data)\n.then((res)=>{\n    console.log(res.body);\n    expect(res.body.data.email).to.eq(data.email);\n    expect(res.body.data.name).to.eq(data.name);\n    data.gender='male';\n    expect(res.body.data).to.deep.include(data)\n    userId=res.body.data.id\n})",
+              "err": {},
+              "uuid": "77aa334f-c757-42a9-af4f-3e0dc7f1eede",
+              "parentUUID": "381cfbd5-4b7c-4c5e-8227-cf2607121228",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "77aa334f-c757-42a9-af4f-3e0dc7f1eede"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "d58c2cc1-9777-4c20-a681-762755f084d1",
+          "title": "GET",
+          "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
+          "file": "\\test\\Test1.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "/user",
+              "fullTitle": "GET /user",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get('users?access-token=${Token}').end((err,res)=>{\n    console.log('Error found is: ',err);\n    console.log(res.body);\n    expect(res.body.data).to.not.be.empty;\n// done();\n})",
+              "err": {},
+              "uuid": "0ed2c92f-133e-46c3-9f41-79b9e95d327b",
+              "parentUUID": "d58c2cc1-9777-4c20-a681-762755f084d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "/user/:id",
+              "fullTitle": "GET /user/:id",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get(`users/${userId}`).end((err,res)=>{\nconsole.log('Error found is: ',err);\nconsole.log(res.body);\n        });",
+              "err": {},
+              "uuid": "2edee537-0ff1-49b6-845a-7b58175cd0b8",
+              "parentUUID": "d58c2cc1-9777-4c20-a681-762755f084d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "/users/id",
+              "fullTitle": "GET /users/id",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.get('users?access-token= ${Token}&page=5&status=active&gender=female').end((err,res)=>{\n    console.log('Error found is: ',err);\n    console.log(res.body);\n    res.body.data.forEach(data => {\n        expect(data.status).to.eq('active');\n        expect(data.gender).to.eq('female');\n    });\n    // expect(res.body.data.id).to.be.eql(1);\n});",
+              "err": {},
+              "uuid": "4a2475f1-1c0f-4c11-8262-ef4c8bcfa59f",
+              "parentUUID": "d58c2cc1-9777-4c20-a681-762755f084d1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0ed2c92f-133e-46c3-9f41-79b9e95d327b",
+            "2edee537-0ff1-49b6-845a-7b58175cd0b8",
+            "4a2475f1-1c0f-4c11-8262-ef4c8bcfa59f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "6bc2f9a1-9785-4456-b54e-51e3d42a5f61",
+          "title": "PUT",
+          "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
+          "file": "\\test\\Test1.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "/users/:id",
+              "fullTitle": "PUT /users/:id",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data={\n    status :\"Active\",\n    name :`Aasu ${Math.floor(Math.random()*9999)}`,\n}\nrequest.put(`users/${userId}`)\n.set('Authorization',`Bearer ${Token}`)\n.send(data)\n.then((res)=>{\n    console.log(res.body);\n})",
+              "err": {},
+              "uuid": "8c63cfad-e725-4c45-8b92-7a3cd9ec2e74",
+              "parentUUID": "6bc2f9a1-9785-4456-b54e-51e3d42a5f61",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c63cfad-e725-4c45-8b92-7a3cd9ec2e74"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "24bbb019-4985-4c9b-9bd1-aa77aba30383",
+          "title": "DELETE",
+          "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
+          "file": "\\test\\Test1.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "/users/:id",
+              "fullTitle": "DELETE /users/:id",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request.delete(`users/${userId}`)\n.set('Authorization',`Bearer ${Token}`)\n.then(res=>{\n    expect(res.body.data).to.be.eq(null)\n})",
+              "err": {},
+              "uuid": "a14b62d0-cac4-4302-96f3-25ddd8e84c71",
+              "parentUUID": "24bbb019-4985-4c9b-9bd1-aa77aba30383",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a14b62d0-cac4-4302-96f3-25ddd8e84c71"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "427c78f6-4aec-4a47-8538-8bd9d6259259",
+          "title": "Negative Tests",
+          "fullFile": "D:\\PGADemoAPI\\test\\Test2.js",
+          "file": "\\test\\Test2.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "401 Authentication Failed",
+              "fullTitle": "Negative Tests 401 Authentication Failed",
+              "timedOut": false,
+              "duration": 3,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data = {\n    email: `test-${Math.floor(Math.random() * 9999)}@mail.com`,\n    // name :faker.name.fristName,\n    name: 'aay',\n    gender: 'female',\n    status: 'active',\n};\nrequest.post('users')\n    // .set('Authorization',`Bearer ${Token}`)\n    .send(data)\n    .then((res) => {\n        console.log(res.body);\n        expect(res.body.code).to.eq(401);\n        expect(res.body.data.message).to.eq('Authentication Failed');\n    })",
+              "err": {},
+              "uuid": "9bd99d2d-147a-4d4b-b2ed-e2b3fd1f360b",
+              "parentUUID": "427c78f6-4aec-4a47-8538-8bd9d6259259",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "422 validation Failed",
+              "fullTitle": "Negative Tests 422 validation Failed",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data = {\n    email: `test-${Math.floor(Math.random() * 9999)}@mail.com`,\n    // email: faker.name.fristName;\n    name: 'Test1',\n    gender: 'female',\n    status: 'active',\n};\nconst postRes = request.post('users')\n    .set('Authorization', `Bearer ${Token}`)\n    .send(data)\n    .then((res) => {\n        console.log(res.body);\n        expect(res.body.code).to.eq(422);\n        expect(res.body.data.message).to.eq(\"can't be blank\");\n        expect(res.body.field).to.eq(body);\n    })",
+              "err": {},
+              "uuid": "fc0bc0ce-27d9-4907-8f4b-e84ea4092ebb",
+              "parentUUID": "427c78f6-4aec-4a47-8538-8bd9d6259259",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9bd99d2d-147a-4d4b-b2ed-e2b3fd1f360b",
+            "fc0bc0ce-27d9-4907-8f4b-e84ea4092ebb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
