@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.026" tests="8" failures="0">
+  <testsuite name="Root Suite" timestamp="2022-11-02T13:50:09" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="POST" timestamp="2022-11-02T13:50:09" tests="1" file="D:\PGADemoAPI\test\Test1.js" time="0.020" failures="0">
+    <testcase name="POST /users" time="0.017" classname="/users">
+    </testcase>
+  </testsuite>
+  <testsuite name="GET" timestamp="2022-11-02T13:50:09" tests="3" file="D:\PGADemoAPI\test\Test1.js" time="0.003" failures="0">
+    <testcase name="GET /user" time="0.001" classname="/user">
+    </testcase>
+    <testcase name="GET /user/:id" time="0.000" classname="/user/:id">
+    </testcase>
+    <testcase name="GET /users/id" time="0.000" classname="/users/id">
+    </testcase>
+  </testsuite>
+  <testsuite name="PUT" timestamp="2022-11-02T13:50:09" tests="1" file="D:\PGADemoAPI\test\Test1.js" time="0.001" failures="0">
+    <testcase name="PUT /users/:id" time="0.001" classname="/users/:id">
+    </testcase>
+  </testsuite>
+  <testsuite name="DELETE" timestamp="2022-11-02T13:50:09" tests="1" file="D:\PGADemoAPI\test\Test1.js" time="0.001" failures="0">
+    <testcase name="DELETE /users/:id" time="0.001" classname="/users/:id">
+    </testcase>
+  </testsuite>
+  <testsuite name="Negative Tests" timestamp="2022-11-02T13:50:09" tests="2" file="D:\PGADemoAPI\test\Test2.js" time="0.001" failures="0">
+    <testcase name="Negative Tests 401 Authentication Failed" time="0.000" classname="401 Authentication Failed">
+    </testcase>
+    <testcase name="Negative Tests 422 validation Failed" time="0.001" classname="422 validation Failed">
+    </testcase>
+  </testsuite>
+</testsuites>

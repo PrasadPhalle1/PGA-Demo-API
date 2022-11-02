@@ -5,9 +5,9 @@
     "passes": 8,
     "pending": 0,
     "failures": 0,
-    "start": "2022-11-02T10:59:26.908Z",
-    "end": "2022-11-02T10:59:26.958Z",
-    "duration": 50,
+    "start": "2022-11-02T13:26:33.942Z",
+    "end": "2022-11-02T13:26:34.007Z",
+    "duration": 65,
     "testsRegistered": 8,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7cbe647b-da43-4f70-984f-ce7cbd53ba1f",
+      "uuid": "4f41e364-3cc3-4c98-958a-341974d5f053",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "381cfbd5-4b7c-4c5e-8227-cf2607121228",
+          "uuid": "86518534-c630-4d44-9775-55bdb11a42eb",
           "title": "POST",
           "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
           "file": "\\test\\Test1.js",
@@ -38,7 +38,7 @@
               "title": "/users",
               "fullTitle": "POST /users",
               "timedOut": false,
-              "duration": 22,
+              "duration": 27,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "const data={\n    email:`test-${Math.floor(Math.random()*9999)}@mail.com`,\n    name :'Test1',\n    gender :'female',\n    status : 'active',\n};\nrequest.post('users')\n.set('Authorization',`Bearer ${Token}`)\n.send(data)\n.then((res)=>{\n    console.log(res.body);\n    expect(res.body.data.email).to.eq(data.email);\n    expect(res.body.data.name).to.eq(data.name);\n    data.gender='male';\n    expect(res.body.data).to.deep.include(data)\n    userId=res.body.data.id\n})",
               "err": {},
-              "uuid": "77aa334f-c757-42a9-af4f-3e0dc7f1eede",
-              "parentUUID": "381cfbd5-4b7c-4c5e-8227-cf2607121228",
+              "uuid": "b4557a8d-4bd1-4b6d-932c-6708fa234f4c",
+              "parentUUID": "86518534-c630-4d44-9775-55bdb11a42eb",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "77aa334f-c757-42a9-af4f-3e0dc7f1eede"
+            "b4557a8d-4bd1-4b6d-932c-6708fa234f4c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 22,
+          "duration": 27,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "d58c2cc1-9777-4c20-a681-762755f084d1",
+          "uuid": "e82ccaec-5ab0-4cb0-8867-d30de76f2d03",
           "title": "GET",
           "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
           "file": "\\test\\Test1.js",
@@ -86,8 +86,8 @@
               "context": null,
               "code": "request.get('users?access-token=${Token}').end((err,res)=>{\n    console.log('Error found is: ',err);\n    console.log(res.body);\n    expect(res.body.data).to.not.be.empty;\n// done();\n})",
               "err": {},
-              "uuid": "0ed2c92f-133e-46c3-9f41-79b9e95d327b",
-              "parentUUID": "d58c2cc1-9777-4c20-a681-762755f084d1",
+              "uuid": "950ca2aa-8a3a-410b-99e4-caad959f637f",
+              "parentUUID": "e82ccaec-5ab0-4cb0-8867-d30de76f2d03",
               "isHook": false,
               "skipped": false
             },
@@ -104,8 +104,8 @@
               "context": null,
               "code": "request.get(`users/${userId}`).end((err,res)=>{\nconsole.log('Error found is: ',err);\nconsole.log(res.body);\n        });",
               "err": {},
-              "uuid": "2edee537-0ff1-49b6-845a-7b58175cd0b8",
-              "parentUUID": "d58c2cc1-9777-4c20-a681-762755f084d1",
+              "uuid": "18e84382-60ec-44f5-a838-a36dd115361e",
+              "parentUUID": "e82ccaec-5ab0-4cb0-8867-d30de76f2d03",
               "isHook": false,
               "skipped": false
             },
@@ -113,7 +113,7 @@
               "title": "/users/id",
               "fullTitle": "GET /users/id",
               "timedOut": false,
-              "duration": 1,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -122,28 +122,28 @@
               "context": null,
               "code": "request.get('users?access-token= ${Token}&page=5&status=active&gender=female').end((err,res)=>{\n    console.log('Error found is: ',err);\n    console.log(res.body);\n    res.body.data.forEach(data => {\n        expect(data.status).to.eq('active');\n        expect(data.gender).to.eq('female');\n    });\n    // expect(res.body.data.id).to.be.eql(1);\n});",
               "err": {},
-              "uuid": "4a2475f1-1c0f-4c11-8262-ef4c8bcfa59f",
-              "parentUUID": "d58c2cc1-9777-4c20-a681-762755f084d1",
+              "uuid": "d8965401-21ea-4d8c-8480-cac8ed522004",
+              "parentUUID": "e82ccaec-5ab0-4cb0-8867-d30de76f2d03",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "0ed2c92f-133e-46c3-9f41-79b9e95d327b",
-            "2edee537-0ff1-49b6-845a-7b58175cd0b8",
-            "4a2475f1-1c0f-4c11-8262-ef4c8bcfa59f"
+            "950ca2aa-8a3a-410b-99e4-caad959f637f",
+            "18e84382-60ec-44f5-a838-a36dd115361e",
+            "d8965401-21ea-4d8c-8480-cac8ed522004"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3,
+          "duration": 4,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "6bc2f9a1-9785-4456-b54e-51e3d42a5f61",
+          "uuid": "04b3b744-3678-4300-8672-2c220873c7be",
           "title": "PUT",
           "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
           "file": "\\test\\Test1.js",
@@ -163,15 +163,15 @@
               "context": null,
               "code": "const data={\n    status :\"Active\",\n    name :`Aasu ${Math.floor(Math.random()*9999)}`,\n}\nrequest.put(`users/${userId}`)\n.set('Authorization',`Bearer ${Token}`)\n.send(data)\n.then((res)=>{\n    console.log(res.body);\n})",
               "err": {},
-              "uuid": "8c63cfad-e725-4c45-8b92-7a3cd9ec2e74",
-              "parentUUID": "6bc2f9a1-9785-4456-b54e-51e3d42a5f61",
+              "uuid": "606c3cbf-46ce-4336-8bf6-e980d2cbdd85",
+              "parentUUID": "04b3b744-3678-4300-8672-2c220873c7be",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8c63cfad-e725-4c45-8b92-7a3cd9ec2e74"
+            "606c3cbf-46ce-4336-8bf6-e980d2cbdd85"
           ],
           "failures": [],
           "pending": [],
@@ -182,7 +182,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "24bbb019-4985-4c9b-9bd1-aa77aba30383",
+          "uuid": "1fc8058d-99f5-4b39-820c-8f3d603f5792",
           "title": "DELETE",
           "fullFile": "D:\\PGADemoAPI\\test\\Test1.js",
           "file": "\\test\\Test1.js",
@@ -193,7 +193,7 @@
               "title": "/users/:id",
               "fullTitle": "DELETE /users/:id",
               "timedOut": false,
-              "duration": 1,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -202,26 +202,26 @@
               "context": null,
               "code": "request.delete(`users/${userId}`)\n.set('Authorization',`Bearer ${Token}`)\n.then(res=>{\n    expect(res.body.data).to.be.eq(null)\n})",
               "err": {},
-              "uuid": "a14b62d0-cac4-4302-96f3-25ddd8e84c71",
-              "parentUUID": "24bbb019-4985-4c9b-9bd1-aa77aba30383",
+              "uuid": "e786ef95-02b5-420e-b39c-b2d85c485a68",
+              "parentUUID": "1fc8058d-99f5-4b39-820c-8f3d603f5792",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a14b62d0-cac4-4302-96f3-25ddd8e84c71"
+            "e786ef95-02b5-420e-b39c-b2d85c485a68"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 2,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "427c78f6-4aec-4a47-8538-8bd9d6259259",
+          "uuid": "6ef1d4b3-35a1-4cf7-b27a-34b8533b198a",
           "title": "Negative Tests",
           "fullFile": "D:\\PGADemoAPI\\test\\Test2.js",
           "file": "\\test\\Test2.js",
@@ -232,7 +232,7 @@
               "title": "401 Authentication Failed",
               "fullTitle": "Negative Tests 401 Authentication Failed",
               "timedOut": false,
-              "duration": 3,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -241,8 +241,8 @@
               "context": null,
               "code": "const data = {\n    email: `test-${Math.floor(Math.random() * 9999)}@mail.com`,\n    // name :faker.name.fristName,\n    name: 'aay',\n    gender: 'female',\n    status: 'active',\n};\nrequest.post('users')\n    // .set('Authorization',`Bearer ${Token}`)\n    .send(data)\n    .then((res) => {\n        console.log(res.body);\n        expect(res.body.code).to.eq(401);\n        expect(res.body.data.message).to.eq('Authentication Failed');\n    })",
               "err": {},
-              "uuid": "9bd99d2d-147a-4d4b-b2ed-e2b3fd1f360b",
-              "parentUUID": "427c78f6-4aec-4a47-8538-8bd9d6259259",
+              "uuid": "478dc45a-d5b0-4f90-8eb2-2c59bf485e00",
+              "parentUUID": "6ef1d4b3-35a1-4cf7-b27a-34b8533b198a",
               "isHook": false,
               "skipped": false
             },
@@ -250,7 +250,7 @@
               "title": "422 validation Failed",
               "fullTitle": "Negative Tests 422 validation Failed",
               "timedOut": false,
-              "duration": 1,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -259,16 +259,16 @@
               "context": null,
               "code": "const data = {\n    email: `test-${Math.floor(Math.random() * 9999)}@mail.com`,\n    // email: faker.name.fristName;\n    name: 'Test1',\n    gender: 'female',\n    status: 'active',\n};\nconst postRes = request.post('users')\n    .set('Authorization', `Bearer ${Token}`)\n    .send(data)\n    .then((res) => {\n        console.log(res.body);\n        expect(res.body.code).to.eq(422);\n        expect(res.body.data.message).to.eq(\"can't be blank\");\n        expect(res.body.field).to.eq(body);\n    })",
               "err": {},
-              "uuid": "fc0bc0ce-27d9-4907-8f4b-e84ea4092ebb",
-              "parentUUID": "427c78f6-4aec-4a47-8538-8bd9d6259259",
+              "uuid": "7d664935-1777-4c59-8af1-b001599a2ad2",
+              "parentUUID": "6ef1d4b3-35a1-4cf7-b27a-34b8533b198a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9bd99d2d-147a-4d4b-b2ed-e2b3fd1f360b",
-            "fc0bc0ce-27d9-4907-8f4b-e84ea4092ebb"
+            "478dc45a-d5b0-4f90-8eb2-2c59bf485e00",
+            "7d664935-1777-4c59-8af1-b001599a2ad2"
           ],
           "failures": [],
           "pending": [],
